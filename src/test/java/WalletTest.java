@@ -60,5 +60,21 @@ public class WalletTest {
         wallet.addItem(loyaltyCard);
         wallet.addItem(ticket);
         assertEquals(4, wallet.getNumberOfItems());
+
     }
+
+    @Test
+    public void canScanEverythingInWallet() {
+        wallet.addItem(creditCard);
+        wallet.addItem(debitCard);
+        wallet.addItem(loyaltyCard);
+        wallet.addItem(ticket);
+        assertEquals("Payment Successful", wallet.scanCard(0));
+        assertEquals("Payment Complete", wallet.scanCard(1));
+        assertEquals("123456787890", wallet.scanCard(2));
+        assertEquals("QWERTY123456", wallet.scanCard(3));
+    }
+
+
+
 }

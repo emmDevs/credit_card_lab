@@ -23,5 +23,10 @@ public class Wallet {
         this.cards.add(card);
     }
 
+    public String scanCard(int index){
+        IScan card = cards.get(index);
+        return card.scan();
+    }
+
 
 }
